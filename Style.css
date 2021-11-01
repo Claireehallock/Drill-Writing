@@ -1,0 +1,124 @@
+.player{
+    background: "white";
+    position: absolute;
+    width: 17px;
+    text-align: center;
+    font-size: 14px;
+}
+
+#newplayers{
+    position: absolute;
+    top: 20px;
+    left: 1300px;
+    width: 90px;
+}
+
+#playerButton3{
+    width: 100px;
+}
+
+#body{
+    position: absolute;
+    top: 48px;
+    left: 20px;
+}
+
+#yd10a{
+    position: absolute;
+    top: 550px;
+    left: 122px;
+    font-size: 30px;
+    opacity: 0.5;
+}
+
+#yd20a{
+    position: absolute;
+    top: 550px;
+    left: 250px;
+    font-size: 30px;
+    opacity: 0.5;
+}
+
+#yd30a{
+    position: absolute;
+    top: 550px;
+    left: 378px;
+    font-size: 30px;
+    opacity: 0.5;
+}
+
+#yd40a{
+    position: absolute;
+    top: 550px;
+    left: 506px;
+    font-size: 30px;
+    opacity: 0.5;
+}
+
+#yd50{
+    position: absolute;
+    top: 550px;
+    left: 634px;
+    font-size: 30px;
+    opacity: 0.5;
+}
+
+#yd40b{
+    position: absolute;
+    top: 550px;
+    left: 762px;
+    font-size: 30px;
+    opacity: 0.5;
+}
+
+#yd30b{
+    position: absolute;
+    top: 550px;
+    left: 890px;
+    font-size: 30px;
+    opacity: 0.5;
+}
+
+#yd20b{
+    position: absolute;
+    top: 550px;
+    left: 1018px;
+    font-size: 30px;
+    opacity: 0.5;
+}
+
+#yd10b{
+    position: absolute;
+    top: 550px;
+    left: 1146px;
+    font-size: 30px;
+    opacity: 0.5;
+}
+
+#previous{
+    position: absolute;
+    width: 95px;
+    top: 700px;
+}
+
+#setcount{
+    position: absolute;
+    top: 685px;
+    left: 105px;
+}
+
+#next{
+    position: absolute;
+    width: 70px;
+    top: 700px;
+    left: 133px;
+
+}
+
+#coordsText{
+    position: absolute;
+    width: 1000px;
+    top: 685px;
+    left: 225px;
+}
+

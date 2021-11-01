@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Drill Writing</title>
+        <link rel="stylesheet" type="text/css" href="Style.css">
+    </head>
+    <body id="body">
+        <div style="height:850px; width:1500px;"></div>
+        
+        <div id="background" onclick="deselect()">
+            <div id="canvas">
+                <canvas id="myCanvas" width="1280" height="672" style="border:2px solid black;position:absolute;top:20.5px;left: 6.4px;overflow: scroll;"></canvas>
+            </div>
+            <div id="yardlines">
+                <p id="yd10a">10</p>
+                <p id="yd20a">20</p>
+                <p id="yd30a">30</p>
+                <p id="yd40a">40</p>
+                <p id="yd50">50</p>
+                <p id="yd40b">40</p>
+                <p id="yd30b">30</p>
+                <p id="yd20b">20</p>
+                <p id="yd10b">10</p>
+                
+            </div>
+        </div>
+        
+        <div id="sets">
+            <p id="setcount">0</p>
+            <button id="previous" onclick="previousSet()">Previous Set</button>
+            <button id="next" onclick="nextSet()">Next Set</button>
+            <p id="coordsText">Click on a player to select them</p>
+        </div>
+        <div id="extras">
+            <p style="position:absolute; top:735px;">Extra Features:</p>
+            <button id="playerdistance" onclick="checkDistance()" style="position:absolute; top: 780px; width: 120px;">Check for players closer than 6 feet</button>
+            <button id="traveldistance" onclick="travelDistance()" style="position:absolute; top: 780px; left: 150px; width: 120px;">Show how far the selected player has traveled since the last set</button>
+            <button id="alltraveldistance" onclick="allTravelDistance()" style="position:absolute; top: 780px; left: 300px; width: 120px;">Show how far all players have traveled since the last set</button>    
+        </div>
+        
+        <div id="printmodes">
+        <button id="print" onclick="togglePrintMode()" style="position:absolute; bottom: 20px; right: 20px; width: 90px;">Print mode</button>
+        </div>
+            
+        <div id="newplayers">
+            <button id="newPlayer" onclick="newPlayerButtons()">Add New Player</button>
+        </div>
+        
+        <div id="players">
+            <div id="piccolo"></div>
+            <div id="flute"></div>
+            <div id="clarinet"></div>
+            <div id="bassclarinet"></div>
+            <div id="altosax"></div>
+            <div id="tenorsax"></div>
+            <div id="barisax"></div>
+            <div id="trumpet"></div>
+            <div id="mellophone"></div>
+            <div id="baritone"></div>
+            <div id="tuba"></div>
+            <div id="snare"></div>
+            <div id="tenor"></div>
+            <div id="bass"></div>
+            <div id="guard"></div>
+        </div>
+        
+        <script src="Lines.js"></script>
+        <script src="Code.js"></script>
+            
+    </body>
+</html>
