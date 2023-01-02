@@ -32,11 +32,14 @@ var instrumentLetterList = ["P", "F", "C", "D", "A", "K", "S", "T", "M", "B", "O
 var showCount = 1;
 if(localStorage.getItem("CurrentShow"))
     showCount = localStorage.getItem("CurrentShow");
+else
+    localStorage.setItem("CurrentShow", 1);
 
 //Contains a list of all stored show names
 var showNames = ["untitled show"];
 if(localStorage.getItem("ShowNames"))
     showNames = localStorage.getItem("ShowNames").split("\n");
+else(localStorage.setItem("ShowNames", showNames.join("\n")));
 
 //counts what set is currently being viewed
 var setCount = 1;
@@ -47,11 +50,12 @@ if(localStorage.getItem("Set")){
 
 
 //contains the number of players for each instrument
-
-var playerNums = [1, 1, 3, 0, 1, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0];
+var playerNums = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 if (localStorage.getItem("PlayerNums"))
     playerNums = localStorage.getItem("PlayerNums").split("\n");
-//localStorage.setItem("PlayerNums", playerNums.join("\n"));
+else{
+    localStorage.setItem("PlayerNums", playerNums.join("\n"));
+}
 
 
 //contains all player information for each set
@@ -63,23 +67,25 @@ var playerListXPixels = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]];
 //contains all player pixel y-coordinates for each set
 var playerListYPixels = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]];
 
-//Loads data into the playerLists
-for(var i = 0; i < playerListWords.length; i++){
-    var c = 0;
-    while(c < playerNums[i]){
-        playerListWords[i][c] = (localStorage.getItem("wShow" + showCount + ":" + instrumentLetterList[i] + (c+1))).split("\n");
-        playerListXPixels[i][c] = (localStorage.getItem("xShow" + showCount + ":" + instrumentLetterList[i] + (c+1)).split("\n"));
-        playerListYPixels[i][c] = (localStorage.getItem("yShow" + showCount + ":" + instrumentLetterList[i] + (c+1)).split("\n"));        
-        c++;
+//Loads data into the playerLists (Only happens if data is stored)
+if (localStorage!= null){
+    for(var i = 0; i < playerListWords.length; i++){
+        var c = 0;
+        while(c < playerNums[i]){
+            console.log("wShow" + showCount + ":" + instrumentLetterList[i] + (c+1));
+            playerListWords[i][c] = (localStorage.getItem("wShow" + showCount + ":" + instrumentLetterList[i] + (c+1))).split("\n");
+            playerListXPixels[i][c] = (localStorage.getItem("xShow" + showCount + ":" + instrumentLetterList[i] + (c+1)).split("\n"));
+            playerListYPixels[i][c] = (localStorage.getItem("yShow" + showCount + ":" + instrumentLetterList[i] + (c+1)).split("\n"));        
+            c++;
+        }
     }
-}
-
-//creates the players from PlayerLists
-for(var i = 0; i < playerListXPixels.length; i++){
-    var c = 0;
-    while(c < playerNums[i]){
-        loadPlayer(i, c);
-        c++;
+    //creates the players from PlayerLists
+    for(var i = 0; i < playerListXPixels.length; i++){
+        var c = 0;
+        while(c < playerNums[i]){
+            loadPlayer(i, c);
+            c++;
+        }
     }
 }
 
@@ -224,11 +230,12 @@ function newPlayer(c){
 }
 
 
-//adds a new player based on the instrument (used on startup and changin sets)
+//adds a new player based on the instrument (used on startup and changing sets)
 function loadPlayer(c, v){
 
     var player = document.createElement("p");
     var i = 0;
+    console.log(playerListWords[c][v][setCount-1]);
     if(!playerListWords[c][v][setCount-1] || playerListWords[c][v][setCount-1] == "unset"){
         var i = 0;
         while(playerListWords[c][v][i] == "unset" || !playerListWords[c][v][i]){
